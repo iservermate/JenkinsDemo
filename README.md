@@ -1,2 +1,2 @@
 # JenkinsDemo
-Report for Jenkins and GitHub testing.
+For Jenkins and GitHub testing.
