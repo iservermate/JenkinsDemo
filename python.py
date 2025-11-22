@@ -1,2 +1,1 @@
-print("Hello World!=V6")
-#Test
+priint("Hello World!=V6")
