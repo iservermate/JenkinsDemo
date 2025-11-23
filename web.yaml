@@ -1,5 +1,5 @@
 ---
-- name: Copy file into Docker container and restart Apache
+- name: Copy file into Docker container and restart Apache.
   hosts: 172.17.0.6
   become: true
 
