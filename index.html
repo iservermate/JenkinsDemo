@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Stuff Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            text-align: center;
+            padding: 50px;
+            color: #333;
+        }
+        h1 {
+            font-size: 3em;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .fun-box {
+            background: white;
+            padding: 20px;
+            margin: 30px auto;
+            width: 60%;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        }
+        .surprise-btn {
+            background: #ff6f61;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Welcome to the Fun Stuff Webpage! 🎉</h1>
+
+    <div class="fun-box">
+        <p>Here's a random fun fact for you:</p>
+        <p id="fun-fact" style="font-weight:bold;">Click the button to reveal one!</p>
+        <button class="surprise-btn" onclick="showFact()">Show Fun Fact</button>
+    </div>
+
+    <script>
+        const facts = [
+            "Honey never spoils — archaeologists found 3,000-year-old honey still edible!",
+            "Bananas are berries, but strawberries are not.",
+            "Octopuses have three hearts.",
+            "A group of flamingos is called a 'flamboyance'.",
+            "Cats can’t taste sweetness."
+        ];
+
+        function showFact() {
+            const fact = facts[Math.floor(Math.random() * facts.length)];
+            document.getElementById('fun-fact').textContent = fact;
+        }
+    </script>
+
+</body>
+</html>
