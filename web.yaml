@@ -1,0 +1,30 @@
+---
+- name: Copy file into Docker container and restart Apache
+  hosts: web
+  connection: local
+  become: true
+
+  vars:
+    container_name: webserver_container
+    src_file: ./index.html
+    dest_path: /var/www/html/index.html
+
+  tasks:
+
+    - name: Copy file into Docker container
+    # docker cp source container:dest
+      ansible.builtin.command: >
+        docker cp {{ src_file }} {{ container_name }}:{{ dest_path }}
+
+    - name: Restart Apache2 inside the container
+      ansible.builtin.command: >
+        docker exec {{ container_name }} service apache2 restart
+
+    - name: Confirm Apache2 status
+      ansible.builtin.command: >
+        docker exec {{ container_name }} service apache2 status
+      register: apache_status
+
+    - name: Show Apache status
+      ansible.builtin.debug:
+        var: apache_status.stdout
